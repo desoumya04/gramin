@@ -9,7 +9,25 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
 
-function AppointmentForm() {
+type Doctor = {
+  // define Doctor fields here
+  id: string;
+  name:string;
+};
+
+type Patient = {
+  // define Patient fields here
+  id: string;
+  name:string;
+};
+
+interface AppointmentFormProps {
+  doctors: Doctor[];
+  patients: Patient[];
+}
+
+export function AppointmentForm({ doctors, patients }: AppointmentFormProps) {
+
   const [patientId, setPatientId] = useState<string | undefined>()
   const [doctorId, setDoctorId] = useState<string | undefined>()
   const [date, setDate] = useState("")
@@ -79,4 +97,3 @@ function AppointmentForm() {
 }
 
 export default AppointmentForm
-export { AppointmentForm }
