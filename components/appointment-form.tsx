@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
-import { patients, doctors } from "@/lib/mock-data"
+
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -22,8 +22,8 @@ type Patient = {
 };
 
 interface AppointmentFormProps {
-  doctors: Doctor[];
-  patients: Patient[];
+  doctors ?: Doctor[];
+  patients?: Patient[];
 }
 
 export function AppointmentForm({ doctors, patients }: AppointmentFormProps) {
@@ -35,7 +35,7 @@ export function AppointmentForm({ doctors, patients }: AppointmentFormProps) {
 
   function submit(e: React.FormEvent) {
     e.preventDefault()
-    // eslint-disable-next-line no-alert
+    
     alert(`Appointment booked!\nPatient: ${patientId}\nDoctor: ${doctorId}\n${date} @ ${time}`)
   }
 
@@ -51,7 +51,7 @@ export function AppointmentForm({ doctors, patients }: AppointmentFormProps) {
               <SelectValue placeholder="Choose patient" />
             </SelectTrigger>
             <SelectContent>
-              {patients.map((p) => (
+              {patients?.map((p) => (
                 <SelectItem key={p.id} value={p.id}>
                   {p.name}
                 </SelectItem>
@@ -67,7 +67,7 @@ export function AppointmentForm({ doctors, patients }: AppointmentFormProps) {
               <SelectValue placeholder="Choose doctor" />
             </SelectTrigger>
             <SelectContent>
-              {doctors.map((d) => (
+              {doctors?.map((d) => (
                 <SelectItem key={d.id} value={d.id}>
                   {d.name}
                 </SelectItem>

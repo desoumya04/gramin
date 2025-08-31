@@ -2,6 +2,7 @@
 
 import { useMemo } from "react"
 import { PatientsTable } from "@/components/patients-table"
+
 import { patients } from "@/lib/mock-data"
 
 export default function FacilitatorPatientsPage() {

@@ -19,7 +19,7 @@ export default function PrescriptionForm() {
 
   function submit(e: React.FormEvent) {
     e.preventDefault()
-    // eslint-disable-next-line no-alert
+   
     alert(`Prescription saved:\n${medicineName} - ${dosage}\nNotes: ${notes}`)
   }
 
